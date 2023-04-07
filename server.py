@@ -1,10 +1,29 @@
 import socket
-import time
 
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# Main Client
+def main():
 
-server_socket.bind(("127.0.0.1", 4040))
+    # Host and Port to connect top
+    print("Connecting to server...")
+    host = '127.0.0.1'
+    port = 4040
 
-server_socket.listen(5)
+    # Create a socket object
+    s = socket.socket()
 
-time.sleep(10)
+    # Connect to the server
+    s.connect((host,port))
+
+    # Send a message to the server
+    message = input("-> ")
+    s.send(message.encode('utf-8'))
+
+    # Receive data from the server
+    data = s.recv(1024).decode('utf-8')
+    print ("Received from server: " + data)
+
+    # Close the connection
+    s.close()
+
+if __name__ == '__main__':
+    main()

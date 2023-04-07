@@ -3,6 +3,7 @@
 
 ## Server
 - Should be able to handle multiple clients at the same time
+
 - Keep track of players on map
 - Keep all the user info persisant to a file
 - Make combat command
